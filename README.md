@@ -7,9 +7,9 @@ Learning HTML, CSS and more here.
 
 Etapa 0
 
-1) Magazin de streetwear.
+1: Magazin de streetwear.
 
-2)
+2:
 
   
 
@@ -83,7 +83,7 @@ Pro: Layout, Raffle system
 
 Contra: Speararea continutului - o singura pagina este de fapt magazin
 
-  
+---
 
 Etapa 1 - Randuri
 
