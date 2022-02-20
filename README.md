@@ -86,12 +86,21 @@ Contra: Speararea continutului - o singura pagina este de fapt magazin
   
 
 Etapa 1 - Randuri
+
 5: 29
+
 6: 41, 43
+
 7: 45, 47
+
 8: 55
+
 9: In the text
+
 11: a 165, b 187, c 175, d 179
+
 12: 146
+
 13: cam tot footer-ul
+
 14: 200
