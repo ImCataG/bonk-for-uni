@@ -8,15 +8,70 @@ body
     --glb: #FFF000;
     --org: #FF8C00;
     --red: red;
-    --dkb: #33055E;
+    --dkb: #33055e;
     --lib: #0D84FF;
 }
-
+/* big grid hours */
+main {
+    display: grid;
+    grid-template-areas: "f-newr f-newr f-newr"
+                         "f-calendargr f-tabelgr f-anunturigr"
+                         "f-z8gr f-z8gr f-z8gr"
+                         "f-aboutgr f-onlinegr f-userstatgr";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+section {
+    margin: 10px;
+}
+#temp1
+{
+    grid-area: f-calendargr;
+}
+#temp2
+{
+    grid-area: f-tabelgr;
+}
+#temp3
+{
+    grid-area: f-anunturigr;
+}
+#new-releases
+{
+    grid-area: f-newr;
+}
+#sneakers
+{
+    grid-area: f-z8gr;
+}
+#tshirts
+{
+    grid-area: f-onlinegr
+}
+#faq
+{
+    grid-area: f-userstatgr;
+}
+#socks
+{
+    grid-area: f-tabelgr
+}
+#links
+{
+    grid-area: f-aboutgr;
+}
 *
 { /* resetarea spatierilor */
     margin:0px;
     padding:0px;
     text-indent:0px;
+}
+body
+{
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 h1
 {
@@ -44,10 +99,7 @@ ul.menu > li, ul.menu > ul.submenu > li
 	list-style-type:none;
 	overflow:hidden;
 }
-body
-{
-    background: white;
-}
+
 ul.menu > li
 {
     float:left;
