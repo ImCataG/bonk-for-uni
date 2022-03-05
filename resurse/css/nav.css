@@ -12,7 +12,8 @@ body
     --lib: #0D84FF;
 }
 /* big grid hours */
-main {
+main
+{
     display: grid;
     grid-template-areas: "f-newr f-newr f-newr"
                          "f-calendargr f-tabelgr f-anunturigr"
@@ -20,8 +21,60 @@ main {
                          "f-aboutgr f-onlinegr f-userstatgr";
     grid-template-columns: 1fr 1fr 1fr;
 }
-section {
+
+/* mid grid hours */
+@media screen and (max-width: 1200px)
+{
+    main
+    {
+        display: grid;
+        grid-template-areas: "f-newr f-newr"
+                         "f-calendargr f-tabelgr"
+                         "f-z8gr f-z8gr"
+                         "f-aboutgr f-onlinegr"
+                         "f-anunturigr f-userstatgr";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    html
+    {
+        font-size: 15px;
+    }
+}
+
+/* smol grid hours */
+@media screen and (max-width: 800px)
+{
+    main
+    {
+        display: grid;
+        grid-template-areas: "f-newr"
+                             "f-calendargr"
+                             "f-tabelgr"
+                             "f-z8gr"
+                             "f-aboutgr"
+                             "f-onlinegr"
+                             "f-anunturigr"
+                             "f-userstatgr";
+        grid-template-columns: 1fr;
+    }
+
+    html
+    {
+        font-size: 14px;
+    }
+}
+
+ul
+{
+    list-style:none;
+}
+section
+{
     margin: 10px;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 5px;
 }
 #temp1
 {
@@ -59,12 +112,12 @@ section {
 {
     grid-area: f-aboutgr;
 }
-*
-{ /* resetarea spatierilor */
+/**
+{ 
     margin:0px;
     padding:0px;
     text-indent:0px;
-}
+}*/
 body
 {
     background-color: white;
@@ -75,16 +128,23 @@ body
 }
 h1
 {
+    text-shadow: 2px 2px 5px black;
     width:100%;
     position:fixed;
-    left: 50px;
+    top: 0px;
+    text-align: center;
+    display:block;
+    background-image: linear-gradient(to bottom, black, var(--dkb), var(--dkb), var(--dkb));
+    color: white;
+    height:4rem;
+    margin: auto;
 }
 
 nav
 {
     width:100%;
     position:fixed;
-    top:50px;
+    top:38px;
     left: 0px;
 }
 
@@ -99,7 +159,12 @@ ul.menu > li, ul.menu > ul.submenu > li
 	list-style-type:none;
 	overflow:hidden;
 }
-
+ul.menu, ul.submenu
+{
+    margin:0px;
+    padding:0px;
+    text-indent:0px;
+}
 ul.menu > li
 {
     float:left;
@@ -111,10 +176,11 @@ ul.submenu > li
 }
 ul.menu > li > a, ul.menu > li > div, ul.submenu > li > a
 {
+    
     display:block;
     height:	100%;
     text-decoration:none;
-    color:black;
+    color:white;
 }
 ul.menu > li > ul.submenu
 {
@@ -124,25 +190,62 @@ ul.menu > li > ul.submenu
 
 ul.menu > li > ul.submenu > li
 {
-    border-top:1px solid black;
+    border-left:0px solid black;
+    border-right:0px solid black;
 }
 ul.menu > li > ul.submenu > li:last-child
 {
-    border-bottom:1px solid black;
+    border-bottom:0px solid black;
 }
-
+ul.menu > li > a, ul.submenu > li > a
+{
+    background: var(--dkb);
+}
+@keyframes pog
+{
+    0%
+    {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%
+    {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes unpog {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateZ(-1100px);
+              transform: translateZ(-1100px);
+      opacity: 0;
+    }
+  }
+  
+/* ul.menu > li:hover ul.menu > li > ul.submenu > li > a
+{
+    
+} */
 ul.menu > li > a:hover, ul.submenu > li > a:hover
 {
-    background:yellow;
+    background:var(--red);
+    transition: 0.5s;
 }
 ul.menu > li:hover
 {
     overflow:visible;
 }
-
-ul.menu > li > a
+ul.menu > li:hover .submenu
 {
-    background:black
+    animation-duration: 0.3s;
+    animation-name: pog;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
 }
 
 main {
@@ -150,3 +253,14 @@ main {
     padding-right: 5%;
     padding-top: 100px;
 }
+
+a:link
+{
+    color:var(--lib);
+}
+
+a:visited
+{
+    color:var(--dkb);
+}
+
