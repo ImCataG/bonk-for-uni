@@ -1,0 +1,59 @@
+body
+{
+    --glb: #FFF000;
+    --org: #FF8C00;
+    --red: red;
+    --dkb: #33055e;
+    --lib: #0D84FF;
+}
+
+.taburi-iframe
+{
+    z-index: 1;
+    position:relative;
+    left: 0px;
+    padding: 0px;
+}
+.taburi-iframe > li >  a:hover
+{
+    background-color: var(--org);
+    transition: 0.5s;
+    width: 150px;
+}
+.taburi-iframe > li >  a
+{
+    position:relative;
+    display:block;
+    padding: 5px;
+    width: 120px;
+    height: 40px;
+    font-size: 2rem;
+    border: double 4px red;
+    border-left: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin:auto;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: var(--dkb);
+    transition: 0.5s;
+}
+
+#ifr2
+{
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+}
+.taburi-iframe
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    gap: 0px;
+    align-items: 0px;
+}

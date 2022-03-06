@@ -146,6 +146,7 @@ nav
     position:fixed;
     top:38px;
     left: 0px;
+    z-index: 20;
 }
 
 ul.menu > li, ul.menu > ul.submenu > li
@@ -176,7 +177,7 @@ ul.submenu > li
 }
 ul.menu > li > a, ul.menu > li > div, ul.submenu > li > a
 {
-    
+    transition: 0.5s;
     display:block;
     height:	100%;
     text-decoration:none;
