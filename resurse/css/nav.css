@@ -228,11 +228,12 @@ ul.menu > li > a, ul.submenu > li > a
     }
   }
   
-/* ul.menu > li:hover ul.menu > li > ul.submenu > li > a
+
+/* ul.menu > li > a:hover
 {
-    
+    background-color:linear-gradient(to bottom, black 0%, white 10%, black 20%);
 } */
-ul.menu > li > a:hover, ul.submenu > li > a:hover
+ul.submenu > li > a:hover
 {
     background:var(--red);
     transition: 0.5s;
