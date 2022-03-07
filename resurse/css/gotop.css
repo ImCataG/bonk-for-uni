@@ -1,0 +1,57 @@
+body
+{
+    --glb: #FFF000;
+    --org: #FF8C00;
+    --red: red;
+    --dkb: #33055e;
+    --lib: #0D84FF;
+}
+
+.doutside
+{
+    display:block;
+    padding: 5px;
+    width: 80px;
+    height: 50px;
+    font-size: 2rem;
+    border: solid 4px black;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-radius: 22px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: var(--lib);
+    opacity: 10%;
+    transition: 0.5s;
+}
+
+.doutside:hover
+{
+    opacity: 80%;
+    transition: 0.5s;
+}
+
+.dinside
+{
+    position:relative;
+    display:block;
+    margin:auto;
+    padding: 0px;
+    width: 0px;
+    height: 0px;
+    font-size: 2rem;
+    border: solid 20px #00000000;
+    border-bottom: solid 20px black;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #00000000;
+    transition: 0.5s;
+}
+
+.doutside:hover .dinside
+{
+    transform:translateY(-10px);
+    transition:0.5s;
+}
