@@ -215,28 +215,22 @@ ul.menu > li > a, ul.submenu > li > a
         opacity: 1;
     }
 }
-@keyframes unpog {
-    0% {
-      -webkit-transform: translateZ(0);
-              transform: translateZ(0);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: translateZ(-1100px);
-              transform: translateZ(-1100px);
-      opacity: 0;
-    }
-  }
   
 
 /* ul.menu > li > a:hover
 {
     background-color:linear-gradient(to bottom, black 0%, white 10%, black 20%);
 } */
+ul.menu > li:after
+{
+    content: linear-gradient(to bottom, black 0%, white 50%, black 100%);
+    height: 10px;
+    top: -100px;
+}
 ul.submenu > li > a:hover
 {
     background:var(--red);
-    transition: 0.5s;
+    transition: .4s;
 }
 ul.menu > li:hover
 {
