@@ -1,0 +1,85 @@
+/*facem vizibil iconul de hamburger menu*/
+
+#hamburger{
+    display:block;
+    height: 10%;
+    width: 10%;
+}
+/* implicit menul e ascuns*/
+ul.menu{
+    display:none;
+    position:absolute;
+    width:100%;
+}
+
+/*aici facem vizibil menul cand faem click pe hamburger menu*/
+#ch-menu:checked+ul.menu{
+    display: block;
+    z-index: 2;
+    position: relative;
+    transform-origin: 0 0;
+    animation-name: aparitie_menu_p;
+    animation-iteration-count:1;
+    animation-duration:0.7s;
+    animation-fill-mode:forwards;
+    animation-timing-function:linear;
+}
+#ch-menu:checked+ul.menu>li>div,#ch-menu:checked+ul.menu>li>a{
+    
+    z-index: 2;
+    position: relative;
+    transform-origin: 50% 50%;
+    animation-name: aparitie_menu_p_btn;
+    animation-iteration-count:1;
+    animation-duration:0.7s;
+    animation-fill-mode:forwards;
+    animation-timing-function:linear;
+}
+/*optiunile se intind pe toata latimea containerului*/
+nav ul.menu li{
+    width:100%;
+}
+
+/*menul sa vina deasupra continutul de mai jos, fara sa impinga continutul*/
+nav ul.menu>li ul{
+    position:absolute;
+    width:100%;
+    z-index:200;
+    transform:scale(1,1);
+}
+
+#ch-menu:checked+ul.menu>li ul>*{
+    position:relative;
+    z-index:200;
+}
+nav ul.menu>li:hover>ul{
+    
+    z-index:200;
+    animation:none;
+}
+
+
+/* pentru fiecare element din submenu generam un triunghiulet alb inaintea lui*/
+nav ul.menu>li li a:before{
+    content:" \25B7\00A0	";
+    color:white;
+
+}
+
+@keyframes aparitie_menu_p{
+    0%{
+        opacity:0;
+    } 
+	100%{
+    	opacity:1;
+    }
+}
+
+@keyframes aparitie_menu_p_btn{
+    0%{
+        transform:scale(0,0);
+    } 
+	100%{
+    	transform:scale(1,1);
+    }
+}

@@ -3,6 +3,12 @@ html
     font-size: 16px;
 }
 /* big grid hours */
+#hamburger{
+    display:none;
+}
+#ch-menu{
+    display:none;
+}
 main
 {
     display: grid;
@@ -34,7 +40,7 @@ main
 }
 
 /* smol grid hours */
-@media screen and (max-width: 800px)
+@media screen and (max-width: 850px)
 {
     main
     {
@@ -47,7 +53,8 @@ main
                              "f-onlinegr"
                              "f-anunturigr"
                              "f-userstatgr";
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
+        
     }
 
     html
