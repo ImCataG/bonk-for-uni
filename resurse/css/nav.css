@@ -70,7 +70,7 @@ ul
 section
 {
     margin: 10px;
-    border: 2px solid red;
+    border: 1px solid red;
     border-radius: 5px;
     padding: 5px;
 }
@@ -134,7 +134,7 @@ h1
     display:block;
     background-image: linear-gradient(to bottom, black, var(--dkb), var(--dkb), var(--dkb));
     color: white;
-    height:4rem;
+    height:3rem;
     margin: auto;
     z-index: 20;
 }
@@ -197,9 +197,9 @@ ul.menu > li > ul.submenu > li:last-child
 {
     border-bottom:0px solid black;
 }
-ul.menu > li > a, ul.submenu > li > a
+ul.menu > li > a, ul.submenu > li > a, ul.menu > li > div
 {
-    background: var(--dkb);
+    background-color: var(--dkb);
 }
 @keyframes pog
 {

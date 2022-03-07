@@ -1,5 +1,8 @@
 .doutside
 {
+    position: fixed;
+    right:2%;
+    bottom:2%;
     display:block;
     padding: 5px;
     width: 80px;
@@ -12,7 +15,7 @@
     text-align: center;
     text-decoration: none;
     color: white;
-    background-color: var(--lib);
+    background-color: white;
     opacity: 10%;
     transition: 0.5s;
 }
@@ -45,4 +48,5 @@
 {
     transform:translateY(-10px);
     transition:0.5s;
+    border-bottom: solid 20px var(--org);
 }
