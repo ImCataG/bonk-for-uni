@@ -80,3 +80,9 @@ nav ul.menu>li:hover>ul{
 @keyframes aparitie_menu_p_btn{
 
 }
+
+ul.menu > li > a:hover
+{
+    background:var(--red);
+    transition: .4s;
+}

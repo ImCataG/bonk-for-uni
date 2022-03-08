@@ -169,10 +169,15 @@ ul.menu > li
 {
     float:left;
     width:25%;
+    padding: 0px;
 }
 ul.submenu > li
 {
     width:100%;
+}
+ul.menu
+{
+    position: relative;
 }
 ul.menu > li > a, ul.menu > li > div, ul.submenu > li > a
 {
@@ -222,10 +227,30 @@ ul.menu > li > a, ul.submenu > li > a, ul.menu > li > div
 } */
 ul.menu > li:after
 {
-    content: linear-gradient(to bottom, black 0%, white 50%, black 100%);
-    height: 10px;
-    top: -100px;
+    opacity: 0;
+    content:" "; /* nu merge cu content!!! */
+    background-image: linear-gradient(to bottom, var(--dkb) 0%, white 50%, var(--dkb) 100%);
+    height: 0.5rem;
+    top:0px;
+    left: 0px;
+    position: absolute;
+    width:100%;
+    transition: 0.5s;
 }
+
+ul.menu > li:hover::after
+{
+    opacity: 1;
+    top: 2.5rem;
+    transition: 0.5s;
+}
+
+ul.menu > li
+{
+    position:relative;
+}
+
+
 ul.submenu > li > a:hover
 {
     background:var(--red);
@@ -252,10 +277,12 @@ main {
 a:link
 {
     color:var(--lib);
+    text-decoration: none;
 }
 
 a:visited
 {
     color:var(--dkb);
+    text-decoration: none;
 }
 
