@@ -1,5 +1,28 @@
 {
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.3"
-  }
+  },
+  "name": "bonk-for-uni",
+  "description": "Learning HTML, CSS and more here.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImCataG/bonk-for-uni.git"
+  },
+  "author": "imcatag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImCataG/bonk-for-uni/issues"
+  },
+  "homepage": "https://github.com/ImCataG/bonk-for-uni#readme",
+  "keywords": [
+    "Sneakers",
+    "Jordans",
+    "Yeezys"
+  ]
 }
