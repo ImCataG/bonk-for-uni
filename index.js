@@ -1,4 +1,6 @@
-const express= require("express");
+const express = require("express");
+const fs = require("fs")
+const sharp = require("sharp")
 app= express();
 
 app.set("view engine","ejs");
@@ -10,7 +12,7 @@ console.log("Director proiect:",__dirname);
 
 app.get(["/", "/index", "/home"], function(req, res){
     //res.sendFile(__dirname+"/index1.html");
-    res.render("pagini/index", {ip:req.ip});
+    res.render("pagini/index", {ip:req.ip, imagini:obImagini.imagini});
 })
 
 
@@ -63,8 +65,6 @@ app.get("/*", function(req, res){
 
 
 
-/*
-
 function creeazaImagini(){
     var buf=fs.readFileSync(__dirname+"/resurse/json/galerie.json").toString("utf8");
     obImagini=JSON.parse(buf);//global
@@ -73,21 +73,25 @@ function creeazaImagini(){
         let nume_imag, extensie;
         [nume_imag, extensie ]=imag.fisier.split(".")// "abc.de".split(".") ---> ["abc","de"]
         let dim_mic=150
-        
+        let dim_med=300
         imag.mic=`${obImagini.cale_galerie}/mic/${nume_imag}-${dim_mic}.webp` //nume-150.webp // "a10" b=10 "a"+b `a${b}`
         //console.log(imag.mic);
+
         imag.mare=`${obImagini.cale_galerie}/${imag.fisier}`;
         if (!fs.existsSync(imag.mic))
             sharp(__dirname+"/"+imag.mare).resize(dim_mic).toFile(__dirname+"/"+imag.mic);
 
+        imag.med=`${obImagini.cale_galerie}/med/${nume_imag}-${dim_med}.png`
+        if (!fs.existsSync(imag.med))
+            sharp(__dirname+"/"+imag.mare).resize(dim_med).toFile(__dirname+"/"+imag.med);
+            
+
         
     }
+    console.log(obImagini);
 
 }
 creeazaImagini();
-
-*/
-
 
 
 

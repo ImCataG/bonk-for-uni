@@ -1,0 +1,17 @@
+#galeries
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    counter-reset: nrimag; /* 0 by default */
+}
+
+#galeries figcaption
+{
+    counter-increment: nrimag;
+}
+
+#galeries figcaption::before
+{
+    content: counter(nrimag, upper-alpha) ") ";
+}

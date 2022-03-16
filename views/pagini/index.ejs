@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="resurse/css/navsmol.css" type="text/css" media="screen and (max-width:700px)"/>
         <link href="resurse/css/iframe.css" rel="stylesheet" type="text/css" />
         <link href="resurse/css/gotop.css" rel="stylesheet" type="text/css" />
+        <link href="resurse/css/galeriestatica.css" rel="stylesheet" type="text/css" />
         <link href="resurse/css/colors.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href = "resurse/fontawesome-free-6.0.0-web/css/all.min.css">
 
@@ -60,7 +61,28 @@
         <main>
             <section id="new-releases">
                 <h2>New Releases</h2>
-                <p>Looks like there's no new releases :(</p> <%= locals.ip %>
+                <p>Looks like there's no new releases :(</p> 
+                <p> <%= locals.ip %> </p>
+                <section id="galeries">
+                    <% v_luni=["ianuarie","februarie","martie", "aprilie", "mai", "iunie"] 
+                    for(let imag of locals.imagini) {
+                    d = new Date()
+                    if(imag.luni && imag.luni.includes(v_luni[d.getMonth()])){
+                    %>
+                    <figure>
+                        <picture>
+                            <source srcset="<%= imag.mic %>" media = "(max-width:800px)">
+                            <source srcset="<%= imag.med %>" media = "(max-width:1200px)">
+                            <img src = "<%= imag.mare %>" alt = "bruh">
+                        </picture>
+                        <figcaption><%- imag.descriere %></figcaption>
+                    </figure>
+                    <%}}%>
+                    
+                    
+                
+                </section>
+            </section>
             </section>
             <section id="temp1">
                 <h2>temp1</h2>
