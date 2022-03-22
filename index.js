@@ -40,28 +40,32 @@ app.get("/ceva", function(req, res, next){
     next();
 })
 
-
 app.get("/*", function(req, res){
-    res.render("pagini"+req.url, function(err, rezRender){
-        if (err){
-            if(err.message.includes("Failed to lookup view")){
-                console.log(err);
-                res.status(404).render("pagini/404");
-            }
-            else{
+    //res.sendFile(__dirname+"/index1.html");
+    res.status(404).render("pagini/404");
+})
+
+// app.get("/*", function(req, res){
+//     res.render("pagini"+req.url, function(err, rezRender){
+//         if (err){
+//             if(err.message.includes("Failed to lookup view")){
+//                 console.log(err);
+//                 res.status(404).render("pagini/404");
+//             }
+//             else{
                 
-                res.render("pagini/eroare_generala");
-            }
-        }
-        else{
-            console.log(rezRender);
-            res.send(rezRender);
-        }
-    });
+//                 res.render("pagini/eroare_generala");
+//             }
+//         }
+//         else{
+//             console.log(rezRender);
+//             res.send(rezRender);
+//         }
+//     });
    
     //console.log("generala:",req.url);
-    res.end();
-})
+    // res.end();
+// })
 
 
 

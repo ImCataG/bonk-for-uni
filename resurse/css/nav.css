@@ -12,11 +12,11 @@ html
 main
 {
     display: grid;
-    grid-template-areas: "f-newr f-newr f-newr"
-                         "f-calendargr f-tabelgr f-anunturigr"
-                         "f-z8gr f-z8gr f-z8gr"
-                         "f-aboutgr f-onlinegr f-userstatgr";
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "f-newr f-newr f-newr f-newr"
+                         "f-calendargr f-tabelgr f-tabelgr f-anunturigr"
+                         "f-z8gr f-z8gr f-z8gr f-z8gr"
+                         "f-aboutgr f-aboutgr f-onlinegr f-userstatgr";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 /* mid grid hours */

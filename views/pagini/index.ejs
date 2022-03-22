@@ -1,62 +1,11 @@
 <!DOCTYPE html>
 <html  lang="en">
     <head>
-        <!-- CSS -->
-        <link href="resurse/css/nav.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="resurse/css/navsmol.css" type="text/css" media="screen and (max-width:700px)"/>
-        <link href="resurse/css/iframe.css" rel="stylesheet" type="text/css" />
-        <link href="resurse/css/gotop.css" rel="stylesheet" type="text/css" />
-        <link href="resurse/css/galeriestatica.css" rel="stylesheet" type="text/css" />
-        <link href="resurse/css/colors.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href = "resurse/fontawesome-free-6.0.0-web/css/all.min.css">
-
-        <!-- Google Font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-        <title> BONK Streetwear </title>
-        <meta charset="UTF-8">
-        <meta name="author" content="Catalin Gheorghe">
-        <meta name="keywords" content="sneaker, hype, streetwear">
-        <meta name="description" content="Magazin Streetwear, raffle-uri & dropuri">
-        <link rel="apple-touch-icon" sizes="180x180" href="./resurse/ico/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="./resurse/ico/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="./resurse/ico/favicon-16x16.png">
-        <link rel="manifest" href="./resurse/ico/site.webmanifest">
-        <link rel="mask-icon" href="./resurse/ico/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="./resurse/ico/favicon.ico">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="./resurse/ico/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
+        <%- include("../fragmente/head.ejs"); %>
     </head>
     <body>
         <header>
-            <a href="index.html"><h1>BONK!</h1></a>
-            <nav class="wrapper">
-                <label id="hamburger" for="ch-menu">
-                    <img src="resurse/imagini/burgir-alb.png" alt="burgir" height=33px width=33px>
-                </label>
-                <input id="ch-menu" type="checkbox">
-
-                <ul class="menu">
-                    <li>
-                        <div><a href="index.html"><i class="fa-solid fa-house" style="color:white"> </i><a class="zerou" style="color:white" href="index.html"> Homepage</a></a></div>
-                        <ul class="submenu">
-                            <li><a href="#new-releases">New Releases</a></li>
-                            <li><a href="#sneakers">Sneakers</a></li>
-                            <li><a href="#socks">Socks</a></li>
-                            <li><a href="#tshirts">T-Shirts</a></li> 
-                            <li><a href="#faq">FAQ</a></li> 
-                        </ul>
-                    </li>
-
-                    <li><a href="other.html">Other</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                    <li><a href="about.html">About</a></li> 
-
-                </ul>
-            </nav>
+            <%- include("../fragmente/header.ejs"); %>
         </header>
         <main>
             <section id="new-releases">
