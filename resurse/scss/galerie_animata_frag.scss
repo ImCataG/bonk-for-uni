@@ -4,12 +4,13 @@ $setare-server:black !default;
 $nrimag: 7 !default;
 
 .galerie{
-    width:400px;
-    height:300px;
+    width:300px;
+    height:225px;
     border:1px solid black;
     position:relative;
     overflow:hidden;
-
+    padding: 0px;
+    margin: 0px;
   border:1px solid black;
     margin-bottom:5rem;
 }
@@ -19,13 +20,21 @@ $nrimag: 7 !default;
     background:rgba(255,255,255,0.7);
     width:100%;
     text-align:center;
+    padding: 0px;
+    margin: 0px;
 }
 .galerie figure{
     position:relative;
-    width:400px;
-    height:300px;
+    width:300px;
+    height:225px;
+    padding: 0px;
+    margin: 0px;
 }
-
+#galerie_exemplu
+{
+    padding: 0px;
+    margin: 0px;
+}
 
 #galerie_exemplu figure{	
     position:absolute;
@@ -38,6 +47,8 @@ $nrimag: 7 !default;
     animation-fill-mode:forwards;
     animation-duration:21s;	
     transform-origin:0px center;
+    padding: 0px;
+    margin: 0px;
 }
 #galerie_exemplu figure:nth-of-type(7){/* cea mai de deasupra*/
     animation-delay:0s;

@@ -1,25 +1,36 @@
-.galeried {
-  width: 400px;
-  height: 300px;
+.galerie {
+  width: 300px;
+  height: 225px;
   border: 1px solid black;
   position: relative;
   overflow: hidden;
+  padding: 0px;
+  margin: 0px;
   border: 1px solid black;
   margin-bottom: 5rem;
 }
 
-.galeried figcaption {
+.galerie figcaption {
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 255, 0.7);
   width: 100%;
   text-align: center;
+  padding: 0px;
+  margin: 0px;
 }
 
-.galeried figure {
+.galerie figure {
   position: relative;
-  width: 400px;
-  height: 300px;
+  width: 300px;
+  height: 225px;
+  padding: 0px;
+  margin: 0px;
+}
+
+#galerie_exemplu {
+  padding: 0px;
+  margin: 0px;
 }
 
 #galerie_exemplu figure {
@@ -33,6 +44,8 @@
   animation-fill-mode: forwards;
   animation-duration: 21s;
   transform-origin: 0px center;
+  padding: 0px;
+  margin: 0px;
 }
 
 #galerie_exemplu figure:nth-of-type(7) {

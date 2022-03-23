@@ -17,6 +17,11 @@ app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index", {ip:req.ip, imagini:obImagini.imagini});
 })
 
+app.get("/eroare", function(req, res)
+{
+    randeazaEroare(res, 1, "ayothepizzabruh");
+})
+
 app.get("*/galerie-animata.css", function(req, res)
 {
     var sirScss = fs.readFileSync(__dirname + "/resurse/scss/galerie_animata.scss").toString("utf8");
@@ -44,7 +49,7 @@ app.get("*/galerie-animata.css", function(req, res)
 
 app.get("/*.ejs", function(req, res){
     //res.sendFile(__dirname+"/index1.html");
-    res.status(403).render("pagini/403");
+    randeazaEroare(res, 403);
 })
 
 /*
@@ -68,7 +73,8 @@ app.get("/ceva", function(req, res, next){
 
 app.get("/*", function(req, res){
     //res.sendFile(__dirname+"/index1.html");
-    res.status(404).render("pagini/404");
+    //res.status(404).render("pagini/404");
+    randeazaEroare(res, 404);
 })
 
 // app.get("/*", function(req, res){
@@ -121,10 +127,32 @@ function creeazaImagini(){
     console.log(obImagini);
 
 }
+
 creeazaImagini();
 
+function creeazaErori(){
+    var buf=fs.readFileSync(__dirname+"/resurse/json/erori.json").toString("utf8");
+    obErori=JSON.parse(buf);//global -- nu are var inainte
+    console.log(obErori);
+    
+}
+
+function randeazaEroare(res, identificator, titlu, text, imagine)
+{
+    var eroare = obErori.erori.find(function (elem) {return identificator == elem.identificator })
+    titlu = titlu || (eroare && eroare.titlu) || "EROARE - how did we get here";
+    text = text || (eroare && eroare.text) || "this is an error. not good.";
+    imagine = imagine || (eroare && obErori.cale_baza + "/" + eroare.imagine) || "resurse/imagini/erori/interzis.png";
+    console.log(eroare);
+    if (eroare && eroare.status)
+        res.status(eroare.identificator).render("pagini/eroare_generala", {titlu: eroare.titlu, text: eroare.text, imagine: obErori.cale_baza + "/" + eroare.imagine});
+    else
+        res.render("pagini/eroare_generala", {titlu: titlu, text: text, immagine: imagine});
+    console.log(obErori.cale_baza + "/" + eroare.imagine);
+}
+creeazaErori();
 
 
 
 app.listen(8080);
-console.log("A pornit")
+console.log("A pornit");
