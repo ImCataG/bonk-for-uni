@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html  lang="en">
+    <head>
+        <%- include("../fragmente/head.ejs"); %>
+    </head>
+    <body>
+        <header>
+            <%- include("../fragmente/header.ejs"); %>
+        </header>
+        <main>
+            <section id="new-releases">
+                <h2>I've brought sweets</h2>
+                <p>Take one. If you take multiple, you shall pay for your sins.</p> 
+                <p> <%= locals.ip %> </p>
+                <section id="galeries">
+                    <% v_luni=["ianuarie","februarie","martie", "aprilie", "mai", "iunie"] 
+                    for(let imag of locals.imagini) {
+                    d = new Date()
+                    if(imag.luni && imag.luni.includes(v_luni[d.getMonth()])){
+                    %>
+                    <figure>
+                        <picture>
+                            <source srcset="<%= imag.mic %>" media = "(max-width:800px)">
+                            <source srcset="<%= imag.med %>" media = "(max-width:1200px)">
+                            <img src = "<%= imag.mare %>" alt = "bruh">
+                        </picture>
+                        <figcaption><%- imag.descriere %></figcaption>
+                    </figure>
+                    <%}}%>
+                    
+                </section>
+                <section>
+                <div id="galerie_exemplu" class = "galerie">
+                <div>
+                    <figure>
+                        <img src="/resurse/galerie/med/briose-frisca-300.png" alt="briosefrisca" />
+                        <figcaption>briosefrisca</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/resurse/galerie/med/clatite-300.png" alt="clatite" />
+                        <figcaption>clatite</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/resurse/galerie/med/gogosi-300.png" alt="gogosi" />
+                        <figcaption>gogosi</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/resurse/galerie/med/prajitura-ciocolata-300.png" alt="prajituraciocolata" />
+                        <figcaption>prajituraciocolata</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/resurse/galerie/med/tarta-afine-300.png" alt="tartaafine" />
+                        <figcaption>tartaafine</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/resurse/galerie/med/tort-scortisoara-300.png" alt="tortscortisoara" />
+                        <figcaption>tortscortisoara</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="/resurse/galerie/med/tort-trandafiri-300.png" alt="torttrandafiri" />
+                        <figcaption>torttrandafiri</figcaption>
+                    </figure>
+                </div>
+                </div>
+                </section>
+            </section>
+            </section>
+        </main>
+        <footer>
+            <%- include("../fragmente/footer.ejs"); %>
+        </footer>
+    </body>

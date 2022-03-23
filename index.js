@@ -17,6 +17,11 @@ app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index", {ip:req.ip, imagini:obImagini.imagini});
 })
 
+app.get("/other", function(req, res){
+    //res.sendFile(__dirname+"/index1.html");
+    res.render("pagini/other", {ip:req.ip, imagini:obImagini.imagini});
+})
+
 app.get("/eroare", function(req, res)
 {
     randeazaEroare(res, 1, "ayothepizzabruh");
