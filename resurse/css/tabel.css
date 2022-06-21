@@ -2,6 +2,9 @@ table
 {
     caption-side: bottom;
     background-color: lightcyan;
+    row-gap: 0px;
+    column-gap: 0px;
+    border-collapse: collapse;
 }
 
 th, td

@@ -168,7 +168,7 @@ ul.menu, ul.submenu
 ul.menu > li
 {
     float:left;
-    width:25%;
+    width:20%;
     padding: 0px;
 }
 ul.submenu > li

@@ -2,6 +2,7 @@
 <html  lang="en">
     <head>
         <%- include("../fragmente/head.ejs"); %>
+        <link rel="stylesheet" href="/temp/galerie_animata.css" type="text/css"> 
     </head>
     <body>
         <header>
@@ -13,8 +14,8 @@
                 <p>Take one. If you take multiple, you shall pay for your sins.</p> 
                 <p> <%= locals.ip %> </p>
                 <section id="galeries">
-                    <% v_luni=["ianuarie","februarie","martie", "aprilie", "mai", "iunie"] 
-                    for(let imag of locals.imagini) {
+                    <% v_luni=["ianuarie","februarie","martie", "aprilie", "mai", "iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+                    for(let imag of locals.imagini.slice(0,Math.min(10,locals.imagini.length)) ) {
                     d = new Date()
                     if(imag.luni && imag.luni.includes(v_luni[d.getMonth()])){
                     %>
@@ -28,6 +29,20 @@
                     </figure>
                     <%}}%>
                     
+                </section>
+                <section>
+                    <div id = "galerie_animata">
+                    <div id = "container_galerie">
+                        <% for(let imag of locals.animate) {%>
+                        <figure>
+                            <picture>
+                                <img src="<%- imag.mic %>" alt="......">
+                            </picture>
+                            <!-- <figcaption><%- imag.descriere %></figcaption> -->
+                        </figure>
+                        <% } %>
+                    </div>
+                </div>
                 </section>
                 <section>
                 <div id="galerie_exemplu" class = "galerie">

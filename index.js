@@ -3,12 +3,31 @@ const fs = require("fs");
 const sharp = require("sharp");
 const ejs = require("ejs");
 const sass = require("sass");
-app= express();
+const {Client} = require("pg");
+const formidable = require("formidable");
+
+const client = new Client({
+    database: "bonk1",
+    user: "cg",
+    password: "pw12",
+    host: "localhost",
+    port: 5432
+});
+client.connect();
+
+app = express();
 
 app.set("view engine","ejs");
 
-
 app.use("/resurse", express.static(__dirname+"/resurse"))
+
+// app.use("/")
+// {
+//     client.query("select * from prod_type;", function(err, rezQuery)
+//     {
+//         console.log(rezQuery);
+//     })
+// }
 
 console.log("Director proiect:",__dirname);
 
@@ -17,40 +36,59 @@ app.get(["/", "/index", "/home"], function(req, res){
     res.render("pagini/index", {ip:req.ip, imagini:obImagini.imagini});
 })
 
+app.get("/produse", function(req, res)
+{
+    client.query("select * from items;", function(err, rezQuery)
+    {
+        console.log(err);
+        console.log(rezQuery);
+        res.render("pagini/produse", {produse: rezQuery.rows, optiuni: []});
+    })
+})
+
+
 app.get("/other", function(req, res){
+    list = obImagini.imagini
+    nr_imag = [2, 3, 4]
+
+    nr_imag = nr_imag.sort(() => Math.random() - 0.5)
+    nr_imag = nr_imag[0];
+
+    list = list.sort(() => Math.random() - 0.5)
+    list = list.slice(0, nr_imag * nr_imag)
     //res.sendFile(__dirname+"/index1.html");
-    res.render("pagini/other", {ip:req.ip, imagini:obImagini.imagini});
+    res.render("pagini/other", {ip:req.ip, imagini:obImagini.imagini, animate: list});
 })
 
 app.get("/eroare", function(req, res)
 {
     randeazaEroare(res, 1, "ayothepizzabruh");
 })
-
-app.get("*/galerie-animata.css", function(req, res)
-{
-    var sirScss = fs.readFileSync(__dirname + "/resurse/scss/galerie_animata.scss").toString("utf8");
-    var culori=["red","purple","darkblue","black"];
-    var indiceAleator=Math.floor(Math.random()*culori.length);
-    var culoareAleatoare = culori[indiceAleator];
-    rezScss=ejs.render(sirScss,{culoare:culoareAleatoare});
-    console.log(rezScss);
-    var caleSass = __dirname + "/temp/galerie_animata.scss";
-    fs.writeFileSync(__dirname + "/temp/galerie_animata.scss", rezScss);
-    try{
-        rezCompilare = sass.compile(caleSass,{sourceMap:true});
-        var caleCss = __dirname + "/temp/galerie_animata.css";
-        fs.writeFileSync(caleCss,rezCompilare.css);
-        res.setHeader("Content-Type", "text/css");
-        res.sendFile(caleCss);
+app.get("*/galerie_animata.css", function(req, res) {
+    var buf=fs.readFileSync(__dirname+"/Resurse/scss/galerie_animata.scss").toString("utf8");
+    var rezCss = ejs.render(buf, {nr_imag:nr_imag});
+    fs.writeFileSync(__dirname+"/temp/galerie_animata.scss", rezCss);
+    try {
+        varrez = sass.compile(__dirname+"/temp/galerie_animata.scss", {sourceMap: true});
     }
-    catch (err){
+    catch (err) {
         console.log(err);
-        res.send("Eroare");
-
     }
-})
 
+    fs.writeFileSync(__dirname+"/temp/galerie_animata.css", varrez.css);
+    res.setHeader("Content-type", "text/css");
+    res.sendFile(__dirname+"/temp/galerie_animata.css");
+});
+
+//users
+app.post("/inreg", function(req,res)
+{
+    var formular = new formidable.incomingForm();
+    formular.parse(req, function(err, campuriText, campuriFisier)
+    {
+        console.log('brother');
+    });
+});
 
 app.get("/*.ejs", function(req, res){
     //res.sendFile(__dirname+"/index1.html");

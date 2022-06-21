@@ -2,6 +2,15 @@
 <html  lang="en">
     <head>
         <%- include("../fragmente/head.ejs"); %>
+        <style>
+            /*display all elements inside main in a grid*/
+            main {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-gap: 10px;
+                grid-auto-rows: minmax(100px, auto);
+            }
+        </style>
     </head>
     <body>
         <header>

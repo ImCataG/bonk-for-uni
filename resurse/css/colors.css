@@ -6,3 +6,12 @@ body
     --dkb: #0a074a;
     --lib: #0D84FF;
 }
+
+body.dark
+{
+    --glb: #423e00;
+    --org: #4e2300;
+    --red: red;
+    --dkb: #645de4;
+    --lib: #021b35;
+}

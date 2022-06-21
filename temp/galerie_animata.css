@@ -1,127 +1,121 @@
-.galerie {
+#galerie_animata {
   width: 300px;
-  height: 225px;
-  border: 1px solid black;
+  height: 200px;
   position: relative;
   overflow: hidden;
-  padding: 0px;
-  margin: 0px;
-  border: 1px solid black;
-  margin-bottom: 5rem;
+  border: 10px solid transparent;
+  border-image: url(https://img.freepik.com/free-vector/hand-painted-background-violet-orange-colours_23-2148427578.jpg?w=2000) 30 round;
 }
 
-.galerie figcaption {
-  position: absolute;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.7);
+#galerie_animata figure {
+  margin: 0px;
+  padding: 0;
+}
+
+#galerie_animata figure picture {
+  display: block;
+}
+
+#galerie_animata figure img {
+  display: block;
+}
+
+#container_galerie {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  text-align: center;
-  padding: 0px;
-  margin: 0px;
-}
-
-.galerie figure {
-  position: relative;
-  width: 300px;
-  height: 225px;
-  padding: 0px;
-  margin: 0px;
-}
-
-#galerie_exemplu {
-  padding: 0px;
-  margin: 0px;
-}
-
-#galerie_exemplu figure {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  grid-gap: 0px;
   position: absolute;
-  left: 0;
   top: 0;
-  z-index: 0;
-  animation-name: gal_exemplu;
+  left: 0;
+  animation-name: galerie_animata;
+  animation-duration: 12s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-  animation-duration: 21s;
-  transform-origin: 0px center;
-  padding: 0px;
-  margin: 0px;
 }
 
-#galerie_exemplu figure:nth-of-type(7) {
-  /* cea mai de deasupra*/
-  animation-delay: 0s;
+#galerie_animata figcaption {
+  position: relative;
+  bottom: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-#galerie_exemplu figure:nth-of-type(6) {
-  animation-delay: 3s;
+#container_galerie:hover {
+  animation-play-state: paused;
 }
 
-#galerie_exemplu figure:nth-of-type(5) {
-  animation-delay: 6s;
-}
-
-#galerie_exemplu figure:nth-of-type(4) {
-  animation-delay: 9s;
-}
-
-#galerie_exemplu figure:nth-of-type(3) {
-  animation-delay: 12s;
-}
-
-#galerie_exemplu figure:nth-of-type(2) {
-  animation-delay: 15s;
-}
-
-#galerie_exemplu figure:nth-of-type(1) {
-  animation-delay: 18s;
-}
-
-/*cum calculam timpii:
-- avem 7 poze; vrem pentru fiecare un timp de afisare de 1.5 secunde si o trecere spre urmatoarea poza de 1.5 secunde
-- rezulta 3 secunde pentru fiecare imagine
-- 7imagini * 3secunde =21 secunde in total pentru animatie (animation-duration) si fiecare poza cu un delay = 3* numarul de ordine
-- momentul in care trebuie ascunsa poza si pusa in spatele celorlalte (ca sa isi astepte randul pentru noua animatie:
-il calculam cu formula  timp_afisare(normal+trecerea la urmatoarea poza)/timp_total*100 = 3/21*100 =  14.285714(aproximativ)
-100%..... 21s
-x%........3s
-
-- calculam 100-14.285714=85.714286 - la acest moment imaginea trebuie sa se vada in spatele imaginii care se afiseaza in mod curent (ca sa se vada si cat timp se realizeaza efectul de schimbare a imaginii
-*/
-@keyframes gal_exemplu {
+@keyframes galerie_animata {
   0% {
-    z-index: 10;
-    opacity: 1;
+    top: 0px;
+    left: 0px;
   }
-  /*perioada 0-5% in care se afiseaza fara efect */
-  7.142857% {
-    transform: skewX(0deg);
+  21% {
+    transform: scale(2);
+    top: -100px;
+    left: 150px;
   }
-  12% {
-    opacity: 1;
+  23% {
+    transform: scale(2);
+    top: -100px;
+    left: 150px;
   }
-  /* de  aici doresc sa descresc si opacitatea;*/
-  14.285714% {
-    z-index: 10;
-    opacity: 0;
-    transform: skewX(90deg);
+  25% {
+    transform: scale(1);
+    top: 0px;
+    left: 0px;
   }
-  14.285715% {
-    z-index: -10;
-    transform: skewX(0deg);
+  46% {
+    transform: scale(2);
+    top: -100px;
+    left: -150px;
   }
-  /* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
-  85.714287% {
-    opacity: 0;
-    transform: skewX(0deg);
-    z-index: -10;
+  48% {
+    transform: scale(2);
+    top: -100px;
+    left: -150px;
   }
-  85.714288% {
-    z-index: 0;
+  50% {
+    transform: scale(1);
+    top: 0px;
+    left: 0px;
   }
-  /*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
+  71% {
+    transform: scale(2);
+    top: 100px;
+    left: 150px;
+  }
+  73% {
+    transform: scale(2);
+    top: 100px;
+    left: 150px;
+  }
+  75% {
+    transform: scale(1);
+    top: 0px;
+    left: 0px;
+  }
+  96% {
+    transform: scale(2);
+    top: 100px;
+    left: -150px;
+  }
+  98% {
+    transform: scale(2);
+    top: 100px;
+    left: -150px;
+  }
   100% {
-    opacity: 1;
-    z-index: 0;
+    transform: scale(1);
+    top: 0px;
+    left: 0px;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
   }
 }

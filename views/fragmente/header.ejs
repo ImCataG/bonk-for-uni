@@ -1,4 +1,12 @@
-<a href="index.html"><h1>BONK!</h1></a>
+<script>
+    var tema = localStorage.getItem("tema");
+    if(tema)
+        document.body.classList.add("dark");
+    else
+        document.body.classList.remove("dark");
+</script>
+
+<a href="index"><h1>BONK!</h1></a>
 <nav class="wrapper">
     <label id="hamburger" for="ch-menu">
         <img src="resurse/imagini/burgir-alb.png" alt="burgir" height=33px width=33px>
@@ -18,8 +26,9 @@
         </li>
 
         <li><a href="other">Other</a></li>
-        <li><a href="calendar">Calendar</a></li>
+        <li><a href="/produse">Produse</a></li>
         <li><a href="about">About</a></li> 
-
+        <li><a href = "/inregistrare">Inregistrare</a>
+        </li>
     </ul>
 </nav>
